@@ -1,0 +1,43 @@
+{
+  "name": "fkde/epilepsy-tracker",
+  "description": "New tracker with api endpoint",
+  "type": "project",
+  "license": "MIT",
+  "autoload": {
+    "psr-4": {
+      "App\\": "app/"
+    }
+  },
+  "repositories": [
+    {
+      "type": "path",
+      "url": "../nixphp-database"
+    },
+    {
+      "type": "path",
+      "url": "../nixphp-orm"
+    },
+    {
+      "type": "path",
+      "url": "../nixphp"
+    },
+    {
+      "type": "path",
+      "url": "../nixphp-form"
+    },
+    {
+      "type": "path",
+      "url": "../nixphp-cli"
+    }
+  ],
+  "minimum-stability": "dev",
+  "require": {
+    "ext-pdo": "*",
+    "nixphp/framework": "dev-main",
+    "nixphp/view": "dev-main",
+    "nixphp/form": "dev-main",
+    "nixphp/i18n": "dev-main",
+    "nixphp/orm": "dev-main",
+    "nixphp/cli": "dev-main"
+  }
+}

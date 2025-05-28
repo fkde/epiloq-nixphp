@@ -1,0 +1,26 @@
+<?php
+
+use function NixPHP\I18n\t;
+use function NixPHP\View\asset;
+asset()->add('/assets/css/nixwind.css');
+asset()->add('/assets/css/app.css');
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Epilepsy-Tracker</title>
+    <meta charset="utf-8">
+    <?= asset()->render('css') ?>
+</head>
+<body>
+    <header>
+        <div class="width-md mx-auto flex items-center py-4 m-0">
+            <h1 class="text-white"><?= t('index.headline') ?></h1>
+        </div>
+    </header>
+    <div id="app">
+        <?= $this->renderBlock('content') ?>
+    </div>
+    <?= asset()->render('js') ?>
+</body>
+</html>

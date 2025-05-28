@@ -1,0 +1,108 @@
+<?php
+
+use NixPHP\Form\Core\Validator;
+use function NixPHP\Form\error;
+use function NixPHP\Form\error_class;
+use function NixPHP\Form\memory;
+use function NixPHP\guard;
+use function NixPHP\I18n\t;
+use function NixPHP\route;
+
+/* @var array $data */
+/* @var Validator $validator */
+?>
+<form action="<?= route('index') ?>" method="post" class="width-md mx-auto">
+
+    <div class="flex items-center gap-2">
+        <label class="w-25" for="type"><?= t('form.label.type') ?></label>
+        <input id="type" type="text" name="types" placeholder="<?= t('form.placeholder.type') ?>" value="<?= memory('types') ?>" class="<?= error_class('types', $validator) ?>">
+        <div class="flex">
+            <?php foreach ($data['types'] as $type): ?>
+                <div class="chip"><?= $type->getName() ?></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?= error('types', $validator); ?>
+
+    <div class="flex items-center gap-2 mt-2">
+        <label class="w-25" for="symptoms"><?= t('form.label.symptom') ?></label>
+        <input id="symptoms" type="text" name="symptoms" placeholder="<?= t('form.placeholder.symptom') ?>" value="<?= memory('symptoms') ?>" class="<?= error_class('symptoms', $validator) ?>">
+        <div class="flex">
+            <?php foreach ($data['symptoms'] as $symptom): ?>
+                <div class="chip"><?= $symptom->getName() ?></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?= error('symptoms', $validator); ?>
+
+    <div class="flex items-center gap-2 mt-2">
+        <label class="w-25" for="triggers"><?= t('form.label.trigger') ?></label>
+        <input id="triggers" type="text" name="triggers" placeholder="<?= t('form.placeholder.trigger') ?>" value="<?= memory('triggers') ?>" class="<?= error_class('triggers', $validator) ?>">
+        <div class="flex">
+            <?php foreach ($data['triggers'] as $trigger): ?>
+                <div class="chip"><?= $trigger->getName() ?></div>
+            <?php endforeach; ?>
+        </div>
+    </div>
+    <?= error('triggers', $validator); ?>
+
+    <input type="hidden" name="_csrf" value="<?= guard()->csrf()->generate() ?>" />
+
+    <hr />
+
+    <button class="bg-green">Speichern</button>
+
+</form>
+
+<script>
+// chip
+
+(() => {
+    document.addEventListener('DOMContentLoaded', () => {
+        // Alle Chips-Elemente initialisieren
+        document.querySelectorAll('.chip').forEach(chip => {
+            chip.addEventListener('click', () => {
+                const tag = chip.textContent.trim();
+                const parent = chip.closest('.flex.items-center');
+                const input = parent.querySelector('input[type="text"]');
+                if (!input) return;
+
+                let tags = input.value.split(',').map(t => t.trim()).filter(Boolean);
+                if (!tags.includes(tag)) {
+                    tags.push(tag);
+                    input.value = tags.join(', ');
+                    chip.classList.add('hidden');
+                }
+            });
+        });
+
+        // Alle Inputs überwachen (für manuelles Entfernen von Tags)
+        document.querySelectorAll('input[type="text"]').forEach(input => {
+            input.addEventListener('input', () => {
+                const parent = input.closest('.flex.items-center');
+                const chips = parent.querySelectorAll('.chip');
+                const tags = input.value.split(',').map(t => t.trim()).filter(Boolean);
+
+                // Remove errors while typing
+                input.classList.remove('error');
+
+                chips.forEach(chip => {
+                    const tag = chip.textContent.trim();
+                    chip.classList.toggle('hidden', tags.includes(tag));
+                });
+            });
+
+            // ➕ Initiale Sichtbarkeit der Chips direkt prüfen
+            const parent = input.closest('.flex.items-center');
+            const chips = parent.querySelectorAll('.chip');
+            const tags = input.value.split(',').map(t => t.trim()).filter(Boolean);
+
+            chips.forEach(chip => {
+                const tag = chip.textContent.trim();
+                chip.classList.toggle('hidden', tags.includes(tag));
+            });
+        });
+    });
+})();
+
+</script>

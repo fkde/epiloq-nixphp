@@ -1,0 +1,9 @@
+{
+  "index.headline": "Epilepsie-Tracker",
+  "form.label.symptom": "Symptome",
+  "form.label.trigger": "Auslöser",
+  "form.label.type": "Typ",
+  "form.placeholder.symptom": "z.B. Ohnmacht",
+  "form.placeholder.trigger": "z.B. Periode",
+  "form.placeholder.type": "z.B. Absence"
+}

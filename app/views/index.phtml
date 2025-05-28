@@ -1,0 +1,17 @@
+<?php
+
+use NixPHP\Form\Core\Validator;
+use function NixPHP\I18n\t;
+use function NixPHP\View\view;
+
+/* @var array $data */
+/* @var Validator $validator */
+?>
+
+<?php $this->setLayout('layout') ?>
+
+<?php $this->block('content') ?>
+
+    <?= view('components/episode-form', ['data' => $data, 'validator' => $validator]) ?>
+
+<?php $this->endblock('content') ?>

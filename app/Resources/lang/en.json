@@ -1,0 +1,9 @@
+{
+  "index.headline": "Epilepsy Tracker",
+  "form.label.symptom": "Symptoms",
+  "form.label.trigger": "Trigger",
+  "form.label.type": "Type",
+  "form.placeholder.symptom": "e.g. unconsciousness",
+  "form.placeholder.trigger": "e.g. period",
+  "form.placeholder.type": "e.g. absence"
+}
