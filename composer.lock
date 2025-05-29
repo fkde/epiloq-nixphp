@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "030b9ebb0a39fa5df41ba2dfde18548b",
+    "content-hash": "d169477b4c8b9ff35c64d67e331a47b1",
     "packages": [
         {
             "name": "nixphp/cli",
@@ -12,7 +12,7 @@
             "dist": {
                 "type": "path",
                 "url": "../nixphp-cli",
-                "reference": "3a2a52b50703e9f0b19087ce25aa128e4dbed65f"
+                "reference": "ae5ef60ee007e2e989b93009b064e4e4490d75d3"
             },
             "require": {
                 "ext-readline": "*",
@@ -30,7 +30,10 @@
             "autoload": {
                 "psr-4": {
                     "NixPHP\\Cli\\": "src/"
-                }
+                },
+                "files": [
+                    "src/functions.php"
+                ]
             },
             "autoload-dev": {
                 "psr-4": {
@@ -40,12 +43,6 @@
             "scripts": {
                 "test": [
                     "phpunit --colors=always"
-                ],
-                "post-install-cmd": [
-                    "@php setup.php"
-                ],
-                "post-update-cmd": [
-                    "@php setup.php"
                 ]
             },
             "license": [
@@ -119,7 +116,7 @@
             "dist": {
                 "type": "path",
                 "url": "../nixphp-form",
-                "reference": "756edb6dc3688f6c54cdebc6dc9f4262829dc4b5"
+                "reference": "e89c948748332b841859e8c5d6d16fec97b441fc"
             },
             "require": {
                 "nixphp/framework": "dev-main",
@@ -169,7 +166,7 @@
             "dist": {
                 "type": "path",
                 "url": "../nixphp",
-                "reference": "297aca95f4b4fa5c4e9da513b41921c0f6033405"
+                "reference": "7d887b5ceccea13b0c71d609524b6c1eef39eb8b"
             },
             "require": {
                 "ext-json": "*",
@@ -228,12 +225,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/i18n.git",
-                "reference": "3a551a11029469139626ecbbc71e692a24dbd83c"
+                "reference": "ad9c6191fb845b938f45196c160a11f81718bd90"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/i18n/zipball/3a551a11029469139626ecbbc71e692a24dbd83c",
-                "reference": "3a551a11029469139626ecbbc71e692a24dbd83c",
+                "url": "https://api.github.com/repos/nixphp/i18n/zipball/ad9c6191fb845b938f45196c160a11f81718bd90",
+                "reference": "ad9c6191fb845b938f45196c160a11f81718bd90",
                 "shasum": ""
             },
             "require": {
@@ -269,7 +266,7 @@
                 "issues": "https://github.com/nixphp/i18n/issues",
                 "source": "https://github.com/nixphp/i18n/tree/main"
             },
-            "time": "2025-05-25T14:57:38+00:00"
+            "time": "2025-05-27T17:52:47+00:00"
         },
         {
             "name": "nixphp/orm",
@@ -277,7 +274,7 @@
             "dist": {
                 "type": "path",
                 "url": "../nixphp-orm",
-                "reference": "8e37bd2a1a1b7a6fe180c0e42a67189c14bbe3c2"
+                "reference": "1b6b49322252d9730977fc12a45af158c21bc37b"
             },
             "require": {
                 "ext-pdo": "*",
@@ -848,7 +845,9 @@
     },
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": {},
+    "platform": {
+        "ext-pdo": "*"
+    },
     "platform-dev": {},
     "plugin-api-version": "2.6.0"
 }

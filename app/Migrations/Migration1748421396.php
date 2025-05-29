@@ -25,6 +25,7 @@ class Migration1748421396
         
         CREATE TABLE IF NOT EXISTS `episodes` (
             `id` INTEGER PRIMARY KEY AUTOINCREMENT,
+            `user_id` INTEGER DEFAULT NULL,
             `note` TEXT DEFAULT NULL
         );
         

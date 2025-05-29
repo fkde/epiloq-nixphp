@@ -11,7 +11,7 @@ class Episode extends AbstractModel
 {
 
     protected Type $type;
-    protected int $user_id;
+    protected ?int $user_id = null;
     protected array $triggers = [];
     protected array $symptoms = [];
     protected ?string $note = null;
