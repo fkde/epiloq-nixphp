@@ -4,7 +4,7 @@ namespace App\Migrations;
 
 use \PDO;
 
-class Migration1748421396
+class MigrationCreateTables
 {
 
     /**
@@ -17,10 +17,10 @@ class Migration1748421396
         CREATE TABLE IF NOT EXISTS `users` (
             `id` INTEGER PRIMARY KEY AUTOINCREMENT,
             `gender` TEXT NOT NULL,
+            `birthdate` DATETIME NOT NULL,
             `username` TEXT NOT NULL,
             `email` TEXT NOT NULL,
-            `password` TEXT NOT NULL,
-            `birthdate` DATETIME NOT NULL
+            `password` TEXT NOT NULL
         );
         
         CREATE TABLE IF NOT EXISTS `episodes` (

@@ -11,23 +11,11 @@
   "repositories": [
     {
       "type": "path",
-      "url": "../nixphp-database"
-    },
-    {
-      "type": "path",
-      "url": "../nixphp-orm"
-    },
-    {
-      "type": "path",
       "url": "../nixphp"
     },
     {
       "type": "path",
-      "url": "../nixphp-form"
-    },
-    {
-      "type": "path",
-      "url": "../nixphp-cli"
+      "url": "../nixphp-queue"
     }
   ],
   "minimum-stability": "dev",
@@ -38,6 +26,7 @@
     "nixphp/form": "dev-main",
     "nixphp/i18n": "dev-main",
     "nixphp/orm": "dev-main",
-    "nixphp/cli": "dev-main"
+    "nixphp/cli": "dev-main",
+    "nixphp/queue": "dev-main"
   }
 }
