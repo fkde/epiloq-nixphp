@@ -3,7 +3,9 @@
   "form.label.symptom": "Symptome",
   "form.label.trigger": "Auslöser",
   "form.label.type": "Typ",
+  "form.label.duration": "Dauer",
   "form.placeholder.symptom": "z.B. Ohnmacht",
   "form.placeholder.trigger": "z.B. Periode",
-  "form.placeholder.type": "z.B. Absence"
+  "form.placeholder.type": "z.B. Absence",
+  "form.placeholder.duration": "00:00:00"
 }

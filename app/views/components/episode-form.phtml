@@ -4,9 +4,9 @@ use NixPHP\Form\Core\Validator;
 use function NixPHP\Form\error;
 use function NixPHP\Form\error_class;
 use function NixPHP\Form\memory;
-use function NixPHP\guard;
 use function NixPHP\I18n\t;
 use function NixPHP\route;
+use function NixPHP\Form\csrf;
 
 /* @var array $data */
 /* @var Validator $validator */
@@ -46,20 +46,61 @@ use function NixPHP\route;
     </div>
     <?= error('triggers', $validator); ?>
 
-    <input type="hidden" name="_csrf" value="<?= guard()->csrf()->generate() ?>" />
+    <div class="flex items-center gap-2 mt-2">
+        <label class="w-25" for="duration"><?= t('form.label.duration') ?></label>
+        <input id="duration" type="text" name="duration" placeholder="<?= t('form.placeholder.duration') ?>" value="<?= memory('duration') ?>" class="<?= error_class('duration', $validator) ?>">
+        <div class="flex gap-2">
+            <span class="btn timer-start bg-green">Start</span>
+            <span class="btn timer-stop bg-red hidden">Stop</span>
+        </div>
+    </div>
+    <?= error('duration', $validator); ?>
+
+    <input type="hidden" name="_csrf" value="<?= csrf() ?>" />
 
     <hr />
 
-    <button class="bg-green">Speichern</button>
+    <button class="btn bg-green">Speichern</button>
 
 </form>
 
 <script>
-// chip
 
+// chip
 (() => {
+
+    function formatTime(seconds) {
+        const h = String(Math.floor(seconds / 3600)).padStart(2, '0');
+        const m = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
+        const s = String(seconds % 60).padStart(2, '0');
+        return `${h}:${m}:${s}`;
+    }
+
     document.addEventListener('DOMContentLoaded', () => {
-        // Alle Chips-Elemente initialisieren
+
+        const startBtn = document.querySelector('.timer-start');
+        const stopBtn = document.querySelector('.timer-stop');
+        const field = document.querySelector('#duration');
+        let timer = null;
+        let elapsedSeconds = 0;
+
+        startBtn.addEventListener('click', function() {
+
+            startBtn.classList.add('hidden');
+            stopBtn.classList.remove('hidden');
+
+            timer = setInterval(() => {
+                elapsedSeconds++;
+                field.value = formatTime(elapsedSeconds);
+            }, 1000);
+        });
+
+        stopBtn.addEventListener('click', () => {
+            startBtn.classList.remove('hidden');
+            stopBtn.classList.add('hidden');
+            clearInterval(timer);
+        });
+
         document.querySelectorAll('.chip').forEach(chip => {
             chip.addEventListener('click', () => {
                 const tag = chip.textContent.trim();
@@ -76,7 +117,6 @@ use function NixPHP\route;
             });
         });
 
-        // Alle Inputs überwachen (für manuelles Entfernen von Tags)
         document.querySelectorAll('input[type="text"]').forEach(input => {
             input.addEventListener('input', () => {
                 const parent = input.closest('.flex.items-center');
@@ -92,7 +132,6 @@ use function NixPHP\route;
                 });
             });
 
-            // ➕ Initiale Sichtbarkeit der Chips direkt prüfen
             const parent = input.closest('.flex.items-center');
             const chips = parent.querySelectorAll('.chip');
             const tags = input.value.split(',').map(t => t.trim()).filter(Boolean);

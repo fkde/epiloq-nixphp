@@ -1,9 +1,11 @@
 <?php
 
 use function NixPHP\I18n\t;
+use function NixPHP\route;
 use function NixPHP\View\asset;
 asset()->add('/assets/css/nixwind.css');
 asset()->add('/assets/css/app.css');
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -15,7 +17,7 @@ asset()->add('/assets/css/app.css');
 <body>
     <header>
         <div class="width-md mx-auto flex items-center py-4 m-0">
-            <h1 class="text-white"><?= t('index.headline') ?></h1>
+            <a href="<?= route('index') ?>"><h1 class="text-white"><?= t('index.headline') ?></h1></a>
         </div>
     </header>
     <div id="app">

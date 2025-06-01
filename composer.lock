@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1a7415384b8939a0605edd26c9e8054e",
+    "content-hash": "60f4701ab37beb6cc1f5447853ea2213",
     "packages": [
         {
             "name": "nixphp/cli",
@@ -62,12 +62,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/database.git",
-                "reference": "cd9ad738abaec4f5f3a146c00201c27f2f082059"
+                "reference": "db3893534c291e0aa27ba34756d1f25cff15a991"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/database/zipball/cd9ad738abaec4f5f3a146c00201c27f2f082059",
-                "reference": "cd9ad738abaec4f5f3a146c00201c27f2f082059",
+                "url": "https://api.github.com/repos/nixphp/database/zipball/db3893534c291e0aa27ba34756d1f25cff15a991",
+                "reference": "db3893534c291e0aa27ba34756d1f25cff15a991",
                 "shasum": ""
             },
             "require": {
@@ -101,7 +101,7 @@
                 "issues": "https://github.com/nixphp/database/issues",
                 "source": "https://github.com/nixphp/database/tree/main"
             },
-            "time": "2025-05-31T13:03:53+00:00"
+            "time": "2025-05-31T21:04:31+00:00"
         },
         {
             "name": "nixphp/form",
@@ -109,12 +109,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/form.git",
-                "reference": "d905d379bf3cd4a2a93c1dbd93d89e9409d74194"
+                "reference": "ae67901e1c791999e2df01f6c052e93b2809dda8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/form/zipball/d905d379bf3cd4a2a93c1dbd93d89e9409d74194",
-                "reference": "d905d379bf3cd4a2a93c1dbd93d89e9409d74194",
+                "url": "https://api.github.com/repos/nixphp/form/zipball/ae67901e1c791999e2df01f6c052e93b2809dda8",
+                "reference": "ae67901e1c791999e2df01f6c052e93b2809dda8",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 "issues": "https://github.com/nixphp/form/issues",
                 "source": "https://github.com/nixphp/form/tree/main"
             },
-            "time": "2025-05-31T13:00:08+00:00"
+            "time": "2025-05-31T21:42:14+00:00"
         },
         {
             "name": "nixphp/framework",
@@ -156,7 +156,7 @@
             "dist": {
                 "type": "path",
                 "url": "../nixphp",
-                "reference": "a26cb657b5b994c659216b23dff4a255b23ed382"
+                "reference": "ee9dea43ce3106f2981cf514ee16baf10f217169"
             },
             "require": {
                 "ext-json": "*",
@@ -215,12 +215,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/i18n.git",
-                "reference": "ee06fb725a97a92c5f54ac71cdc0cd009eeaf29a"
+                "reference": "7dfcc88475bcf37504591fe29da7fa54fba798a7"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/i18n/zipball/ee06fb725a97a92c5f54ac71cdc0cd009eeaf29a",
-                "reference": "ee06fb725a97a92c5f54ac71cdc0cd009eeaf29a",
+                "url": "https://api.github.com/repos/nixphp/i18n/zipball/7dfcc88475bcf37504591fe29da7fa54fba798a7",
+                "reference": "7dfcc88475bcf37504591fe29da7fa54fba798a7",
                 "shasum": ""
             },
             "require": {
@@ -253,7 +253,58 @@
                 "issues": "https://github.com/nixphp/i18n/issues",
                 "source": "https://github.com/nixphp/i18n/tree/main"
             },
-            "time": "2025-05-31T13:05:28+00:00"
+            "time": "2025-05-31T21:20:49+00:00"
+        },
+        {
+            "name": "nixphp/mail",
+            "version": "dev-main",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/nixphp/mail.git",
+                "reference": "cc7d4f617f35e726493726a68b38c8a2a78d4ae9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/nixphp/mail/zipball/cc7d4f617f35e726493726a68b38c8a2a78d4ae9",
+                "reference": "cc7d4f617f35e726493726a68b38c8a2a78d4ae9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-fileinfo": "*",
+                "ext-mbstring": "*",
+                "nixphp/framework": "dev-main",
+                "php": ">=8.3"
+            },
+            "require-dev": {
+                "phpunit/php-code-coverage": "^12.1",
+                "phpunit/phpunit": "^12.1"
+            },
+            "default-branch": true,
+            "type": "nixphp-plugin",
+            "autoload": {
+                "files": [
+                    "src/functions.php"
+                ],
+                "psr-4": {
+                    "NixPHP\\Mail\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Flo Knapp",
+                    "email": "office@florianknapp.de"
+                }
+            ],
+            "description": "NixPHP Mail Plugin for quick email communication.",
+            "support": {
+                "issues": "https://github.com/nixphp/mail/issues",
+                "source": "https://github.com/nixphp/mail/tree/main"
+            },
+            "time": "2025-05-30T19:21:58+00:00"
         },
         {
             "name": "nixphp/orm",
@@ -261,12 +312,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/orm.git",
-                "reference": "74de6d7389c35f0dd19a49d4de17cdca77234f9a"
+                "reference": "d6de9a5fb98dc1f724fa3fcd8de476f31189d459"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/orm/zipball/74de6d7389c35f0dd19a49d4de17cdca77234f9a",
-                "reference": "74de6d7389c35f0dd19a49d4de17cdca77234f9a",
+                "url": "https://api.github.com/repos/nixphp/orm/zipball/d6de9a5fb98dc1f724fa3fcd8de476f31189d459",
+                "reference": "d6de9a5fb98dc1f724fa3fcd8de476f31189d459",
                 "shasum": ""
             },
             "require": {
@@ -301,7 +352,7 @@
                 "issues": "https://github.com/nixphp/orm/issues",
                 "source": "https://github.com/nixphp/orm/tree/main"
             },
-            "time": "2025-05-31T13:04:39+00:00"
+            "time": "2025-05-31T21:22:06+00:00"
         },
         {
             "name": "nixphp/queue",
@@ -358,12 +409,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/session.git",
-                "reference": "eae6948aad166dc6eff2416cb7755485292889a3"
+                "reference": "d68e42a97914f45846e897f5935a02f487a7b15a"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/session/zipball/eae6948aad166dc6eff2416cb7755485292889a3",
-                "reference": "eae6948aad166dc6eff2416cb7755485292889a3",
+                "url": "https://api.github.com/repos/nixphp/session/zipball/d68e42a97914f45846e897f5935a02f487a7b15a",
+                "reference": "d68e42a97914f45846e897f5935a02f487a7b15a",
                 "shasum": ""
             },
             "require": {
@@ -396,7 +447,7 @@
                 "issues": "https://github.com/nixphp/session/issues",
                 "source": "https://github.com/nixphp/session/tree/main"
             },
-            "time": "2025-05-31T13:01:04+00:00"
+            "time": "2025-05-31T21:10:46+00:00"
         },
         {
             "name": "nixphp/view",
@@ -404,16 +455,15 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/view.git",
-                "reference": "f51b9067f79a06ffebb4a8143e4026154522429e"
+                "reference": "c5b04ffaff6a3f9c4aac56ee22485bf0aa0244d6"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/view/zipball/f51b9067f79a06ffebb4a8143e4026154522429e",
-                "reference": "f51b9067f79a06ffebb4a8143e4026154522429e",
+                "url": "https://api.github.com/repos/nixphp/view/zipball/c5b04ffaff6a3f9c4aac56ee22485bf0aa0244d6",
+                "reference": "c5b04ffaff6a3f9c4aac56ee22485bf0aa0244d6",
                 "shasum": ""
             },
             "require": {
-                "ext-pdo": "*",
                 "nixphp/framework": "dev-main",
                 "php": ">=8.3"
             },
@@ -438,12 +488,12 @@
                     "email": "office@florianknapp.de"
                 }
             ],
-            "description": "NixPHP View Plugin with simple templating. ",
+            "description": "NixPHP View Plugin with simple templating.",
             "support": {
                 "issues": "https://github.com/nixphp/view/issues",
                 "source": "https://github.com/nixphp/view/tree/main"
             },
-            "time": "2025-05-31T13:02:51+00:00"
+            "time": "2025-06-01T18:36:40+00:00"
         },
         {
             "name": "nyholm/psr7",
@@ -866,6 +916,7 @@
         "nixphp/form": 20,
         "nixphp/framework": 20,
         "nixphp/i18n": 20,
+        "nixphp/mail": 20,
         "nixphp/orm": 20,
         "nixphp/queue": 20,
         "nixphp/view": 20

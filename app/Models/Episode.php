@@ -5,15 +5,18 @@ namespace App\Models;
 use App\Models\Repository\SymptomRepository;
 use App\Models\Repository\TriggerRepository;
 use App\Models\Repository\TypeRepository;
+use App\Models\Repository\UserRepository;
 use NixPHP\ORM\Model\AbstractModel;
+use function NixPHP\ORM\repo;
 
 class Episode extends AbstractModel
 {
 
     protected Type $type;
-    protected ?int $user_id = null;
     protected array $triggers = [];
     protected array $symptoms = [];
+    protected ?int $user_id = null;
+    protected ?int $duration = null;
     protected ?string $note = null;
 
     public function setNote(string $note): void
@@ -36,9 +39,9 @@ class Episode extends AbstractModel
         $this->symptoms[] = $symptom;
     }
 
-    public function getUser()
+    public function getUser():? User
     {
-
+        return repo(UserRepository::class)->findOneBy('id', $this->user_id);
     }
 
     public function getNote():? string

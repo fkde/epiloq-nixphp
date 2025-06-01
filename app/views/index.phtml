@@ -2,6 +2,7 @@
 
 use NixPHP\Form\Core\Validator;
 use function NixPHP\I18n\t;
+use function NixPHP\View\asset;
 use function NixPHP\View\view;
 
 /* @var array $data */
@@ -12,6 +13,12 @@ use function NixPHP\View\view;
 
 <?php $this->block('content') ?>
 
-    <?= view('components/episode-form', ['data' => $data, 'validator' => $validator]) ?>
+    <div id="episode-form" class="hidden">
+        <?= view('components/episode-form', ['data' => $data, 'validator' => $validator]) ?>
+    </div>
+
+    <a class="modal-trigger" data-target="#episode-form" href="javascript:"><?= t('link.add-episode') ?></a>
 
 <?php $this->endblock('content') ?>
+
+<?php asset()->add('/assets/js/modal.nix.js') ?>

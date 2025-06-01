@@ -36,19 +36,6 @@ input.error {
     box-shadow: 0 0 5px 1px var(--red);
 }
 
-button {
-    padding: .6rem 1rem;
-    border: none;
-    outline: none;
-    font-family: inherit;
-    font-size: .9rem;
-    color: var(--gray-light);
-    font-weight: bold;
-    text-transform: uppercase;
-    border-radius: 0.25rem;
-    cursor: pointer;
-}
-
 hr {
     margin: 1.5rem 0;
     border: none;

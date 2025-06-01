@@ -27,6 +27,7 @@
     "nixphp/i18n": "dev-main",
     "nixphp/orm": "dev-main",
     "nixphp/cli": "dev-main",
+    "nixphp/mail": "dev-main",
     "nixphp/queue": "dev-main"
   }
 }

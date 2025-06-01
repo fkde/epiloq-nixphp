@@ -3,7 +3,9 @@
   "form.label.symptom": "Symptoms",
   "form.label.trigger": "Trigger",
   "form.label.type": "Type",
+  "form.label.duration": "Duration",
   "form.placeholder.symptom": "e.g. unconsciousness",
   "form.placeholder.trigger": "e.g. period",
-  "form.placeholder.type": "e.g. absence"
+  "form.placeholder.type": "e.g. absence",
+  "form.placeholder.duration": "00:00:00"
 }
