@@ -6,12 +6,14 @@ use App\Models\Episode;
 use App\Models\Repository\SymptomRepository;
 use App\Models\Repository\TriggerRepository;
 use App\Models\Repository\TypeRepository;
+use Nyholm\Psr7\Uri;
 use Psr\Http\Message\ResponseInterface;
 use function NixPHP\Form\validator;
 use function NixPHP\ORM\em;
 use function NixPHP\ORM\repo;
 use function NixPHP\param;
 use function NixPHP\redirect;
+use function NixPHP\request;
 use function NixPHP\route;
 use function NixPHP\View\render;
 
@@ -26,9 +28,11 @@ class AppController
         $data = ['types' => $types, 'triggers' => $triggers, 'symptoms' => $symptoms];
 
         $validator = validator(param()->all(), [
-            'types' => 'required',
+            'types'    => 'required',
             'symptoms' => 'required',
             'triggers' => 'required',
+            'duration' => 'required',
+            'note'     => 'string',
         ]);
 
         if (false === $validator->fails()) {
@@ -49,7 +53,8 @@ class AppController
         $triggerList = repo(TriggerRepository::class)->findOrCreateManyByName($triggers);
 
         $episode = new Episode();
-        $episode->setNote('Test');
+        $episode->setNote(param()->get('note'));
+        $episode->setDuration(param()->get('duration'));
 
         foreach ($typeList as $type) {
             $episode->addType($type);

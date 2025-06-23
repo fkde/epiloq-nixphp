@@ -17,10 +17,10 @@ asset()->add('/assets/css/app.css');
 <body>
     <header>
         <div class="width-md mx-auto flex items-center py-4 m-0">
-            <a href="<?= route('index') ?>"><h1 class="text-white"><?= t('index.headline') ?></h1></a>
+            <a class="text-decoration-none" href="<?= route('index') ?>"><h1 class="text-white"><?= t('index.headline') ?></h1></a>
         </div>
     </header>
-    <div id="app">
+    <div id="app" class="mx-auto width-md mt-2">
         <?= $this->renderBlock('content') ?>
     </div>
     <?= asset()->render('js') ?>

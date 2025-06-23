@@ -7,5 +7,7 @@
   "form.placeholder.symptom": "e.g. unconsciousness",
   "form.placeholder.trigger": "e.g. period",
   "form.placeholder.type": "e.g. absence",
-  "form.placeholder.duration": "00:00:00"
+  "form.placeholder.duration": "00:00:00",
+
+  "link.add-episode": "Episode hinzufügen"
 }

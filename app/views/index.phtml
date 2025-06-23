@@ -13,11 +13,20 @@ use function NixPHP\View\view;
 
 <?php $this->block('content') ?>
 
-    <div id="episode-form" class="hidden">
-        <?= view('components/episode-form', ['data' => $data, 'validator' => $validator]) ?>
+    <div class="text-right border-box mt-6">
+        <a class="btn bg-blue modal-trigger" data-target="#episode-form" href="javascript:"><?= t('link.add-episode') ?></a>
     </div>
 
-    <a class="modal-trigger" data-target="#episode-form" href="javascript:"><?= t('link.add-episode') ?></a>
+    <hr class="my-8" />
+
+    <div class="list">
+        Liste der eingetragenen Episoden
+    </div>
+
+    <div id="episode-form" class="modal hidden mx-auto w-full width-sm p-8 border-box border-gray rounded-lg shadow-lg">
+        <div class="btn-close p-4">✖</div>
+        <?= view('components/episode-form', ['data' => $data, 'validator' => $validator]) ?>
+    </div>
 
 <?php $this->endblock('content') ?>
 

@@ -26,7 +26,8 @@ class MigrationCreateTables
         CREATE TABLE IF NOT EXISTS `episodes` (
             `id` INTEGER PRIMARY KEY AUTOINCREMENT,
             `user_id` INTEGER DEFAULT NULL,
-            `note` TEXT DEFAULT NULL
+            `note` TEXT DEFAULT NULL,
+            `duration` INT NOT NULL
         );
         
         CREATE TABLE IF NOT EXISTS `types` (

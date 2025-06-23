@@ -48,10 +48,12 @@ use function NixPHP\Form\csrf;
 
     <div class="flex items-center gap-2 mt-2">
         <label class="w-25" for="duration"><?= t('form.label.duration') ?></label>
-        <input id="duration" type="text" name="duration" placeholder="<?= t('form.placeholder.duration') ?>" value="<?= memory('duration') ?>" class="<?= error_class('duration', $validator) ?>">
+        <div id="timer" class="placeholder input-dummy" data-placeholder="00:00:00"></div>
+        <input id="duration" type="hidden" name="duration" placeholder="<?= t('form.placeholder.duration') ?>" value="<?= memory('duration') ?>" class="<?= error_class('duration', $validator) ?>">
         <div class="flex gap-2">
             <span class="btn timer-start bg-green">Start</span>
             <span class="btn timer-stop bg-red hidden">Stop</span>
+            <span class="btn timer-reset bg-blue hidden">Reset</span>
         </div>
     </div>
     <?= error('duration', $validator); ?>
@@ -78,9 +80,31 @@ use function NixPHP\Form\csrf;
 
     document.addEventListener('DOMContentLoaded', () => {
 
+        if (document.querySelector('.error')) {
+
+            // Remove errors when a user types into inputs which are marked with an error
+            document.querySelectorAll('.error').forEach(input => {
+                input.addEventListener('input', function () {
+                    if (this.classList.contains('error')) {
+
+                        const errorMsg = this.closest('div').nextElementSibling;
+
+                        this.classList.remove('error');
+
+                        if (errorMsg.classList.contains('error-msg')) {
+                            errorMsg.parentNode.removeChild(errorMsg);
+                        }
+                    }
+                });
+            });
+
+        }
+
         const startBtn = document.querySelector('.timer-start');
         const stopBtn = document.querySelector('.timer-stop');
+        const resetBtn = document.querySelector('.timer-reset');
         const field = document.querySelector('#duration');
+        const fieldTimer = document.querySelector('#timer');
         let timer = null;
         let elapsedSeconds = 0;
 
@@ -88,17 +112,34 @@ use function NixPHP\Form\csrf;
 
             startBtn.classList.add('hidden');
             stopBtn.classList.remove('hidden');
+            resetBtn.classList.add('hidden');
+            fieldTimer.classList.remove('placeholder');
+
+            fieldTimer.innerHTML = formatTime(elapsedSeconds);
 
             timer = setInterval(() => {
                 elapsedSeconds++;
-                field.value = formatTime(elapsedSeconds);
+                fieldTimer.innerHTML = formatTime(elapsedSeconds);
+                field.value = elapsedSeconds;
             }, 1000);
+
         });
 
         stopBtn.addEventListener('click', () => {
             startBtn.classList.remove('hidden');
             stopBtn.classList.add('hidden');
+            if (field.value > 0) {
+                resetBtn.classList.remove('hidden');
+            }
             clearInterval(timer);
+        });
+
+        resetBtn.addEventListener('click', () => {
+            field.value = null;
+            fieldTimer.innerHTML = '';
+            elapsedSeconds = 0;
+            resetBtn.classList.add('hidden');
+            fieldTimer.classList.add('placeholder');
         });
 
         document.querySelectorAll('.chip').forEach(chip => {

@@ -109,12 +109,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nixphp/form.git",
-                "reference": "ae67901e1c791999e2df01f6c052e93b2809dda8"
+                "reference": "8a951007e03fa305cb3e1a02ea2f2c3c02a05a5e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nixphp/form/zipball/ae67901e1c791999e2df01f6c052e93b2809dda8",
-                "reference": "ae67901e1c791999e2df01f6c052e93b2809dda8",
+                "url": "https://api.github.com/repos/nixphp/form/zipball/8a951007e03fa305cb3e1a02ea2f2c3c02a05a5e",
+                "reference": "8a951007e03fa305cb3e1a02ea2f2c3c02a05a5e",
                 "shasum": ""
             },
             "require": {
@@ -148,7 +148,7 @@
                 "issues": "https://github.com/nixphp/form/issues",
                 "source": "https://github.com/nixphp/form/tree/main"
             },
-            "time": "2025-05-31T21:42:14+00:00"
+            "time": "2025-06-02T10:54:51+00:00"
         },
         {
             "name": "nixphp/framework",

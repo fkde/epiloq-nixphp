@@ -18,17 +18,25 @@ header h1 {
     margin: 0;
 }
 
-#app {
-    max-width: 1280px;
-    margin: 2rem auto;
+a {
+    color: inherit;
 }
 
-input, textarea {
+input, textarea, .input-dummy {
     border: none;
     padding: .5rem .5rem;
     outline: none;
     font-family: inherit;
     font-size: inherit;
+    background-color: #FFF;
+    height: 1.5rem;
+    width: 12rem;
+    color: #202020;
+}
+
+.input-dummy.placeholder:before {
+    content: attr(data-placeholder);
+    color: var(--gray);
 }
 
 input.error {
@@ -54,4 +62,37 @@ hr {
 
 .chip:hover {
     background-color: var(--blue);
+}
+
+#episode-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--gray-dark);
+}
+
+.btn-close {
+    font-weight: 900;
+    text-shadow: 0 1px 0 rgba(0,0,0,1);
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 1.5rem;
+}
+
+.modal {
+    position: absolute;
+    z-index: 1;
+}
+
+.modal-layer {
+    background-color: rgba(0,0,0,0.5);
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: absolute;
+    z-index: 0;
 }

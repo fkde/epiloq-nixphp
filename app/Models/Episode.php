@@ -19,9 +19,14 @@ class Episode extends AbstractModel
     protected ?int $duration = null;
     protected ?string $note = null;
 
-    public function setNote(string $note): void
+    public function setNote(?string $note = null): void
     {
         $this->note = $note;
+    }
+
+    public function setDuration(int $duration): void
+    {
+        $this->duration = $duration;
     }
 
     public function addType(Type $type): void
